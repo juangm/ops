@@ -9,14 +9,14 @@ ARG USER_UID=1000
 ARG USER_GID=$USER_UID
 
 # Configure apt and install packages
-RUN apt-get update \
-    && apt-get -y install --no-install-recommends apt-utils dialog 2>&1 \
+RUN apt update \
+    && apt -y install --no-install-recommends apt-utils dialog 2>&1 \
 
     # Verify git, process tools, lsb-release (common in install instructions for CLIs) installed
-    && apt-get -y install git procps lsb-release \
+    && apt -y install git procps lsb-release \
 
     # Install python + pip
-    && apt-get install python3 python3-pip -y \
+    && apt install python3 python3-pip -y \
 
     # Install kali linux tools
     && apt install kali-linux-large -y \
@@ -29,11 +29,11 @@ RUN apt-get update \
     && useradd -s /bin/bash --uid $USER_UID --gid $USER_GID -m $USERNAME \
 
     # Clean up
-    && apt-get autoremove -y \
-    && apt-get clean -y \
+    && apt autoremove -y \
+    && apt clean -y \
     && rm -rf /var/lib/apt/lists/*
 
-# Switch back to dialog for any ad-hoc use of apt-get
+# Switch back to dialog for any ad-hoc use of apt
 ENV DEBIAN_FRONTEND=
 
 # Set up environment variables
