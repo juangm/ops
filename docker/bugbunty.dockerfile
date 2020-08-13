@@ -11,19 +11,19 @@ ARG USER_GID=$USER_UID
 # Configure apt and install packages
 RUN apt-get update \
     && apt-get -y install --no-install-recommends apt-utils dialog 2>&1 \
-    #
+
     # Verify git, process tools, lsb-release (common in install instructions for CLIs) installed
     && apt-get -y install git procps lsb-release \
-    #
+
     # Install python + pip
     && apt-get install python3 python3-pip -y \
-    #
-    # Install project specific apt packages
-    && apt-get install kali-linux-all -y \
+
+    # Install kali linux tools
+    && apt install kali-linux-large -y \
 
     # Install pylint
     && pip3 --disable-pip-version-check --no-cache-dir install pylint \
-    
+
     # Create a non-root user to use if preferred - see https://aka.ms/vscode-remote/containers/non-root-user.
     && groupadd --gid $USER_GID $USERNAME \
     && useradd -s /bin/bash --uid $USER_UID --gid $USER_GID -m $USERNAME \
