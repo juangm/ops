@@ -9,7 +9,7 @@ ARG USER_UID=1000
 ARG USER_GID=$USER_UID
 
 # Configure apt and install packages
-RUN apt update \
+RUN apt update && apt upgrade -y \
     && apt -y install --no-install-recommends apt-utils dialog 2>&1 \
 
     # Verify git, process tools, lsb-release (common in install instructions for CLIs) installed
@@ -18,8 +18,8 @@ RUN apt update \
     # Install python + pip
     && apt install python3 python3-pip -y \
 
-    # Install kali linux tools
-    && apt install kali-linux-large -y \
+    # Install packages for hacking
+    && apt install kali-linux-core nikto nmap sslscan sslyze metasploit-framework -y \
 
     # Install pylint
     && pip3 --disable-pip-version-check --no-cache-dir install pylint \
