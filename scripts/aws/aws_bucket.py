@@ -26,7 +26,7 @@ if __name__ == "__main__":
         config = {
             "AWS_PROFILE": "Quality",
             "BUCKET_NAME": "qa-jenkins-s3-iwb",
-            "BUCKET_MAIN_FOLDER": "report/Automated_Dev_DEVELOP_BRANCH/1",
+            "BUCKET_MAIN_FOLDER": "report/Automated_Dev_DEVELOP_BRANCH/",
             "BUCKET_DOWNLOAD_FOLDER": "report/Automated_Dev_DEVELOP_BRANCH/{}",
             "OUTPUT_FOLDER": "/reports/Dev/{}"
         }
@@ -34,7 +34,7 @@ if __name__ == "__main__":
         config = {
             "AWS_PROFILE": "Quality",
             "BUCKET_NAME": "qa-jenkins-s3-iwb",
-            "BUCKET_MAIN_FOLDER": "report/Automated_Test_DEVELOP_BRANCH/3",
+            "BUCKET_MAIN_FOLDER": "report/Automated_Test_DEVELOP_BRANCH/",
             "BUCKET_DOWNLOAD_FOLDER": "report/Automated_Test_DEVELOP_BRANCH/{}",
             "OUTPUT_FOLDER": "/reports/Test/{}"
         } 
